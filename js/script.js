@@ -1,34 +1,24 @@
-// Javascript Code.
-(function (){
-	var app=angular.module("frontendAngularjs",[]);
-	.service("response"($http){
-		this.getAll=function(success, failure){}
-			$http.get("nombre de la appi")
-				.success(success)
-				.error(failure);
+(function(){
+	var app=angular.module("angularjs",[]);
+/******************controlador ejemplo**************************/
+	app.controller("informacion",function(){
+		this.datos=datos;
 	})
-	.controller("controllerAngularjs",function($scope,response){
-		$scope.name="carl";
-		response.getAll(function(data){
-			$scope.response=data.response;
-		});
+	var datos=	{
+				nombre:"jose",
+				apellido:"tamayo",
+				edad:22
+				};
+/***************************************************************/
+/******************JSON DE PAISES COMO EJEMPLO******************/
+	app.controller("paises",function($scope,$http){
+		//$scope.name="jose";
+		$http.get("data/paises.json").success(function(data){
+			$scope.informacion=data;
 		});
 	});
-
+/**************************************************************/
 })();
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

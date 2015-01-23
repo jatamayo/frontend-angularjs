@@ -3,11 +3,7 @@ Usa este archivo para tu proyecto. No olvides hacer
 la estructura correta y guardar TODO tu CSS en el archivo styles.css
  -->
 <!DOCTYPE html>
-<!--
-Usa este archivo para tu proyecto. No olvides hacer
-la estructura correta y guardar TODO tu CSS en el archivo styles.css
- -->
-<html ng-app"frontendAngularjs">
+<html ng-app="angularjs">
 <head>
 	<title>TEMPLATE</title>
 <!--_____________________________________CODIGO UTF PARA CARECTERES____________________________________________________________-->
@@ -30,14 +26,30 @@ la estructura correta y guardar TODO tu CSS en el archivo styles.css
 <body>
 <!--******************************************CUERPO DEL HTML******************************************************************-->
 <!--***************************************************************************************************************************-->
+<!--*************************************EJEMPLO DE MANEJO DE DATOS************************************************************-->
+	<div class="container">
+		<div class="row">
+			<div class="textoEjemplo" class="span12">
+				<div ng-controller="informacion as info">
+					<h3>{{info.datos.nombre}} {{info.datos.apellido}}</h3>
 
-
-	<div ng-controller="controllerAngularjs as angular">
-		<h1>{{response.name}}
+				</div>
+			</div>
+		</div>
 	</div>
-
-
-
+<!--**************************************************************************************************************************-->
+<!--***************************************JSON DE PAISES COMO EJEMPLO********************************************************-->
+	<div class="container">
+		<div class="row">
+			<div class="span12">
+				<div class="textoEjemplo" ng-controller="paises">
+					<div ng-repeat="jose in informacion">
+						<h2>{{jose.name}}<span class="span1"> codigo: {{jose.code}}</span></h3>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 <!--***************************************************************************************************************************-->
 <!--***************************************************************************************************************************-->
 <!--_______________________________________LIBRERIA JAVA SCRIOPT BOOTSTRAP_____________________________________________________-->

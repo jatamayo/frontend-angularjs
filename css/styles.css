@@ -1,0 +1,18 @@
+/**************************************************************/
+/*********************FONDO DE PANTALLA************************/
+body 
+{
+	background: url(imagen) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+.textoEjemplo
+{
+	color:white;
+}
+.span1
+{
+	font-size: 15px;
+}
