@@ -1,7 +1,13 @@
 (function(){
 	var app=angular.module("angularjs",[]);
 /******************controlador ejemplo**************************/
-	
+	app.controller("tamayo",function(){
+		this.regresodatos=info;
+	});
+	var info={
+			nombre:"jose",
+			edad:22
+			}
 /***************************************************************/
 /******************JSON DE PAISES COMO EJEMPLO******************/
 	app.controller("paises",function($scope,$http){
