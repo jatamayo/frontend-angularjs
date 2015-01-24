@@ -1,32 +1,61 @@
+<!DOCTYPE html>
 <!--
 Usa este archivo para tu proyecto. No olvides hacer
 la estructura correta y guardar TODO tu CSS en el archivo styles.css
  -->
-<!DOCTYPE html>
-<html ng-app="angularjs">
+<html  ng-app="angularjs">
 <head>
-	<title>TEMPLATE</title>
-<!--_____________________________________CODIGO UTF PARA CARECTERES____________________________________________________________-->
+	<title>Frontend-Music</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<!--___________________________________________________________________________________________________________________________-->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<!--________________________________LIBRERIA PARA SIMBOLO DE PAGINA____________________________________________________________-->
+	
 	<link rel="icon" href="http://4.bp.blogspot.com/-ivpmwk2i8Wk/Uq26qw3oLcI/AAAAAAAABsE/4gZYno6LdgY/s1600/Mangekyou+Sharingan+Eterno+Madara.png">
-<!--____________________________________________CSS____________________________________________________________________________-->
-	<link rel="stylesheet" type="text/css" href="css/styles.css">
-<!--________________________________________LIBRERIAS BOOTSTRAP________________________________________________________________-->
 	<link rel="stylesheet" type="text/css" href="css/boot/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
 	<link href="css/boot/bootstrap-responsive.css" rel="stylesheet">
-<!--______________________________________LIBRERIAS ANGULAR JS_________________________________________________________________-->
-
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28/angular.min.js"></script>
+
 </head>
-<!--___________________________________________________________________________________________________________________________-->
-<body>
-<!--******************************************CUERPO DEL HTML******************************************************************-->
 <!--***************************************************************************************************************************-->
-<!--*************************************EJEMPLO DE MANEJO DE DATOS************************************************************-->
+<!--***************************************************************************************************************************-->
+<body>
+<!--***************************************************************************************************************************-->
+	<table class="table">
+		<thead>
+			<tr>
+				<th>
+					nombre
+				</th>
+				<th>
+					apellido
+				</th>
+				<th>
+					edad
+				</th>
+				<th>
+					telefono
+
+				</th>
+			</tr>
+		</thead>
+		<tr>
+				<th>
+					jose
+				</th>
+				<th>
+					tamayo
+				</th>
+				<th>
+					22
+				</th>
+				<th>
+					465432465
+					
+				</th>
+			</tr>
+	</table>
+
 	<div class="container">
 		<div class="row">
 			<div class="titulo" class="span12">
@@ -38,56 +67,68 @@ la estructura correta y guardar TODO tu CSS en el archivo styles.css
 	</div>
 
 <!--***************************************************************************************************************************-->
+<!--*************************************FILTROS*******************************************************************************-->
 	<div class="row">
 		<div ng-controller="lastfm as datosfm">	
 			<center>
 				<div class="btn-group" role="group" aria-label="...">
-				  <button type="button" class="btn btn-default" ng-click="tab=1">Left</button>
-				  <button type="button" class="btn btn-default" ng-click="tab=2">Middle</button>
-				  <button type="button" class="btn btn-default" ng-click="tab=3">Right</button>
+				  <button class="botonesFiltros" type="button" class="btn btn-default" ng-click="tab=1">NAME</button>
+				  <button class="botonesFiltros" type="button" class="btn btn-default" ng-click="tab=2">DURATION</button>
+				  <button class="botonesFiltros" type="button" class="btn btn-default" ng-click="tab=3">PLAY-COUNTS</button>
+				  <button class="botonesFiltros" type="button" class="btn btn-default" ng-click="tab=4">LISTENERS</button>
+				  <button class="botonesFiltros" type="button" class="btn btn-default" ng-click="tab=5">ALL</button>
 				</div>
-				
+			</center>
+<!--*********************************LLAMADO DE NOMBRE APPI**********************************************************************************-->
 				<div class="panel" ng-show="tab===1">
-					<h3>description</h3>
+					<h3>NAME</h3>
 					<div ng-repeat="datonombre in informacion">
-						<div>{{datonombre.name}}</div>
+						<table class="table table-striped">{{datonombre.name}}</table>
 					</div>
 				</div>
-
+<!--********************************LLAMADO DE DURACION APPI*******************************************************************************-->
 				<div class="panel" ng-show="tab===2">
-					<h3>middle</h3>
+					<h3>DURATION</h3>
 					<div ng-repeat="datonombre in informacion">
 						<div>{{datonombre.duration}}</div>
 					</div>
 				</div>
-
+<!--*******************************LLAMADO DE PLAYCOUNT APPI*****************************************************************************-->
 				<div class="panel" ng-show="tab===3">
-					<h3>review</h3>
+					<h3>PLAY-COUNTS</h3>
 					<div ng-repeat="datonombre in informacion">
 						<div>{{datonombre.playcount}}</div>
 					</div>
 				</div>
-			</center>
+<!--*********************************LLAMADO DE LISTENERS APPI****************************************************************************-->
+				<div class="panel" ng-show="tab===4">
+					<h3>PLAY-COUNTS</h3>
+					<div ng-repeat="datonombre in informacion">
+						<div>{{datonombre.listeners}}</div>
+					</div>
+				</div>
+<!--**********************************TODAS LAS APPI*****************************************************************************-->
+				<div class="panel" ng-show="tab===5">
+					<div class="row">
+						<div class="titulo" class="span12">
+							<center>
+								<div class="cuadroTitulo"><h1>ALL</h1></div>
+							</center>
+						</div>
+					</div>
+					
+
+						
+						
+					</div>
+				</div>
+				<hr>
+			
 		</div>	
 	</div>
-	
+
 <!--***************************************************************************************************************************-->
-<!--***************************************************************************************************************************-->
-	<div class="container">
-	<div class="row">
-		<div class="span12">
-			<div class="textoEjemplo" ng-controller="paises">
-				<div ng-repeat="jose in informacion">
-					<!--div>{{jose.name}}</div-->
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<!--***************************************************************************************************************************-->
-<!--_______________________________________LIBRERIA JAVA SCRIOPT BOOTSTRAP_____________________________________________________-->
 	<script src="js/script.js"></script>
 	<script src="js/bootstrap.min.js"></script>
-
 </body>
 </html>
