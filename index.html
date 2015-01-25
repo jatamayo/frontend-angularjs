@@ -49,7 +49,7 @@ la estructura correta y guardar TODO tu CSS en el archivo styles.css
 				</div>
 			</center>
 		
-<!--*********************************LLAMADO DE NOMBRE APPI**********************************************************************************-->
+<!--*********************************LLAMADO DE APPI POR NOMBRE****************************************************************************-->
 			<div class="container">
 				<div class="row">
 					<div class="span12">
@@ -120,6 +120,7 @@ la estructura correta y guardar TODO tu CSS en el archivo styles.css
 		<!--**********************************TODAS LAS APPI*****************************************************************************-->
 						<div class="panel tablas" ng-show="tab===5">
 							<center><h3 class="tituloTablas">ALL</h3></center>
+							<input type="text" class="form-control" placeholder="BUSCAR" ng-model="buscar">
 							<table class="table table-bordered">
 								<thead>
 									<tr>
@@ -130,7 +131,7 @@ la estructura correta y guardar TODO tu CSS en el archivo styles.css
 									</tr>
 								</thead>
 								<tbody>
-									<tr ng-repeat="datonombre in informacion">
+									<tr ng-repeat="datonombre in informacion | filter:buscar" >
 										<td>{{datonombre.name}}</td>
 										<td>{{datonombre.duration}}</td>
 										<td>{{datonombre.playcount }}</td>
