@@ -11,6 +11,7 @@ la estructura correta y guardar TODO tu CSS en el archivo styles.css
 	
 	<link rel="icon" href="http://4.bp.blogspot.com/-ivpmwk2i8Wk/Uq26qw3oLcI/AAAAAAAABsE/4gZYno6LdgY/s1600/Mangekyou+Sharingan+Eterno+Madara.png">
 	<link rel="stylesheet" type="text/css" href="css/boot/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="bootstrap/fonts/">
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
 	<link href="css/boot/bootstrap-responsive.css" rel="stylesheet">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
@@ -22,17 +23,19 @@ la estructura correta y guardar TODO tu CSS en el archivo styles.css
 <body>
 <!--***************************************************************************************************************************-->
 	
-
+ 
 	<div class="container">
 		<div class="row">
 			<div class="titulo" class="span12">
 				<center>
 				<div class="cuadroTitulo"><h1>FRONTEND - ANGULARJS</h1></div>
+					
 				</center>
 			</div>
 		</div>
 	</div>
-
+	<br>
+	
 <!--***************************************************************************************************************************-->
 <!--*************************************FILTROS*******************************************************************************-->
 	
@@ -40,15 +43,16 @@ la estructura correta y guardar TODO tu CSS en el archivo styles.css
 		<div ng-controller="lastfm as datosfm">	
 			<center>
 				<div class="btn-group" role="group" aria-label="...">
-					  <button class="botonesFiltros" type="button" class="btn btn-default" ng-click="tab=1">NAME</button>
+					  <button class="botonesFiltros" type="button" class="btn btn-default" ng-click="tab=1"><span class="glyphicon glyphicon-search"></span>NAME</button>
 					  <button class="botonesFiltros" type="button" class="btn btn-default" ng-click="tab=2">DURATION</button>
 					  <button class="botonesFiltros" type="button" class="btn btn-default" ng-click="tab=3">PLAY-COUNTS</button>
 					  <button class="botonesFiltros" type="button" class="btn btn-default" ng-click="tab=4">LISTENERS</button>
-					  <button class="botonesFiltros" type="button" class="btn btn-default" ng-click="tab=5">ALL</button>
+					  <button class="botonesFiltros" type="button" class="btn btn-default" ng-click="tab=5">ARTIST</button>
+					   <button class="botonesFiltros" type="button" class="btn btn-default" ng-click="tab=6">ALL</button>
 						<br>
 				</div>
 			</center>
-		
+			<br>
 <!--*********************************LLAMADO DE APPI POR NOMBRE****************************************************************************-->
 			<div class="container">
 				<div class="row">
@@ -56,15 +60,20 @@ la estructura correta y guardar TODO tu CSS en el archivo styles.css
 <!--************************************************************************************************-->
 						<div class="panel tablas" ng-show="tab===1">
 							<center><h3 class="tituloTablas">NAME</h3></center>
+							
+							<input type="text" class="form-control cuadroBuscar" placeholder="BUSCAR" ng-model="buscar">
 							<table class="table table-bordered">
 								<thead>
 									<tr>
 										<th>NAME</th>
+
 									</tr>
 								</thead>
 								<tbody>
-									<tr ng-repeat="datonombre in informacion">
+									<tr ng-repeat="datonombre in informacion | filter:buscar">
 										<td>{{datonombre.name}}</td>
+										<td ng-show="{{datonombre.image[1]}}"><img ng-src="{{datonombre.image[1] | soloUrl}}"></td>
+										<td ng-show="!{{datonombre.image[1]}}"><img src="images/NoCover.jpg"></td>
 									</tr>
 								</tbody>
 							</table>
@@ -72,15 +81,18 @@ la estructura correta y guardar TODO tu CSS en el archivo styles.css
 		<!--********************************LLAMADO DE DURACION APPI*******************************************************************************-->
 						<div class="panel tablas" ng-show="tab===2">
 							<center><h3 class="tituloTablas">DURATION</h3></center>
+							<input type="text" class="form-control cuadroBuscar" placeholder="BUSCAR" ng-model="buscar">
 							<table class="table table-bordered">
 								<thead>
 									<tr>
 										<th>DURATION</th>
+										<th>NAME</th>
 									</tr>
 								</thead>
 								<tbody>
-									<tr ng-repeat="datonombre in informacion">
-										<td>{{datonombre.duration}}</td>
+									<tr ng-repeat="datonombre in informacion | filter:buscar">
+										<td>{{datonombre.duration  *1000 | date: 'mm:ss'}}</td>
+										<td>{{datonombre.name}}</td>
 									</tr>
 								</tbody>
 							</table>
@@ -88,15 +100,18 @@ la estructura correta y guardar TODO tu CSS en el archivo styles.css
 		<!--*******************************LLAMADO DE PLAYCOUNT APPI*****************************************************************************-->
 						<div class="panel tablas" ng-show="tab===3">
 							<center><h3 class="tituloTablas">PLAY-COUNTS</h3></center>
+							<input type="text" class="form-control cuadroBuscar" placeholder="BUSCAR" ng-model="buscar">
 							<table class="table table-bordered">
 								<thead>
 									<tr>
 										<th>PLAYCOUNTS</th>
+										<th>NAME</th>
 									</tr>
 								</thead>
 								<tbody>
-									<tr ng-repeat="datonombre in informacion">
+									<tr ng-repeat="datonombre in informacion | filter:buscar">
 										<td>{{datonombre.playcount}}</td>
+										<td>{{datonombre.name}}</td>
 									</tr>
 								</tbody>
 							</table>
@@ -104,27 +119,51 @@ la estructura correta y guardar TODO tu CSS en el archivo styles.css
 		<!--*********************************LLAMADO DE LISTENERS APPI****************************************************************************-->
 						<div class="panel tablas" ng-show="tab===4">
 						<center><h3 class="tituloTablas">LISTENERS</h3></center>
+						<input type="text" class="form-control cuadroBuscar" placeholder="BUSCAR" ng-model="buscar">
 							<table class="table table-bordered">
 								<thead>
 									<tr>
 										<th>LISTENERS</th>
+										<th>NAME</th>
 									</tr>
 								</thead>
 								<tbody>
-									<tr ng-repeat="datonombre in informacion">
+									<tr ng-repeat="datonombre in informacion | filter:buscar">
 										<td>{{datonombre.listeners}}</td>
+										<td>{{datonombre.name}}</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+	<!--*********************************LLAMADO DE LISTENERS APPI****************************************************************************-->
+						<div class="panel tablas" ng-show="tab===5">
+						<center><h3 class="tituloTablas">ARTIS</h3></center>
+						<input type="text" class="form-control cuadroBuscar" placeholder="BUSCAR" ng-model="buscar">
+							<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th>ARTIST</th>
+										<th>NAME</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-repeat="datonombre in informacion | filter:buscar">
+										<td>{{datonombre.artist.name}}</td>
+										<td>{{datonombre.name}}</td>
 									</tr>
 								</tbody>
 							</table>
 						</div>
 		<!--**********************************TODAS LAS APPI*****************************************************************************-->
-						<div class="panel tablas" ng-show="tab===5">
+						<div class="panel tablas" ng-show="tab===6">
 							<center><h3 class="tituloTablas">ALL</h3></center>
-							<input type="text" class="form-control" placeholder="BUSCAR" ng-model="buscar">
+							<input type="text" class="form-control cuadroBuscar" placeholder="BUSCAR" ng-model="buscar">
 							<table class="table table-bordered">
 								<thead>
 									<tr>
+										<th>IMAGE</th>
 										<th>NAME</th>
+										<th>ARTIST</th>									
 										<th>DURATION</th>
 										<th>PLAY-COUNTS</th>
 										<th>LISTENERS</th>
@@ -132,7 +171,10 @@ la estructura correta y guardar TODO tu CSS en el archivo styles.css
 								</thead>
 								<tbody>
 									<tr ng-repeat="datonombre in informacion | filter:buscar" >
+										<td ng-show="{{datonombre.image[1]}}"><img ng-src="{{datonombre.image[1] | soloUrl}}"></td>
+										<td ng-show="!{{datonombre.image[1]}}"><img src="images/NoCover.jpg"></td>
 										<td>{{datonombre.name}}</td>
+										<td>{{datonombre.artist.name}}</td>
 										<td>{{datonombre.duration}}</td>
 										<td>{{datonombre.playcount }}</td>
 										<td>{{datonombre.listeners}}</td>
