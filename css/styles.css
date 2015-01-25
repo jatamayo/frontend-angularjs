@@ -22,3 +22,16 @@ body
 	border-radius: 10px;
 
 }
+.tablas
+{
+	color:black;
+	background-color:white;
+	border:double;
+	text-shadow: 0 0.2em 0.3em black;
+}
+.tituloTablas
+{
+	background-color:#214F68;
+	color:white;
+	text-shadow: 0 0.2em 0.3em black;
+}
