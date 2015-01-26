@@ -10,7 +10,7 @@ la estructura correta y guardar TODO tu CSS en el archivo styles.css
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	
 	<link rel="icon" href="http://4.bp.blogspot.com/-ivpmwk2i8Wk/Uq26qw3oLcI/AAAAAAAABsE/4gZYno6LdgY/s1600/Mangekyou+Sharingan+Eterno+Madara.png">
-	<link rel="stylesheet" type="text/css" href="css/boot/bootstrap.min.css">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="bootstrap/fonts/">
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
 	<link href="css/boot/bootstrap-responsive.css" rel="stylesheet">
@@ -22,28 +22,27 @@ la estructura correta y guardar TODO tu CSS en el archivo styles.css
 <!--***************************************************************************************************************************-->
 <body>
 <!--***************************************************************************************************************************-->
-	
- 
+<!--****************************************TITULO FRONTENDN ANGULAR,JS********************************************************-->
 	<div class="container">
 		<div class="row">
 			<div class="titulo" class="span12">
 				<center>
 				<div class="cuadroTitulo"><h1>FRONTEND - ANGULARJS</h1></div>
-					
+				
 				</center>
 			</div>
 		</div>
 	</div>
 	<br>
-	
+
 <!--***************************************************************************************************************************-->
-<!--*************************************FILTROS*******************************************************************************-->
+<!--***********************************************BOTONES*********************************************************************-->
 	
 	<div class="row">
 		<div ng-controller="lastfm as datosfm">	
 			<center>
 				<div class="btn-group" role="group" aria-label="...">
-					  <button class="botonesFiltros" type="button" class="btn btn-default" ng-click="tab=1"><span class="glyphicon glyphicon-search"></span>NAME</button>
+					  <button class="botonesFiltros" type="button" class="btn btn-default" ng-click="tab=1"></span>NAME</button>
 					  <button class="botonesFiltros" type="button" class="btn btn-default" ng-click="tab=2">DURATION</button>
 					  <button class="botonesFiltros" type="button" class="btn btn-default" ng-click="tab=3">PLAY-COUNTS</button>
 					  <button class="botonesFiltros" type="button" class="btn btn-default" ng-click="tab=4">LISTENERS</button>
@@ -53,140 +52,176 @@ la estructura correta y guardar TODO tu CSS en el archivo styles.css
 				</div>
 			</center>
 			<br>
-<!--*********************************LLAMADO DE APPI POR NOMBRE****************************************************************************-->
+<!--******************************************LLAMADO DE DATOS NOMBRE*********************************************************-->
 			<div class="container">
 				<div class="row">
 					<div class="span12">
-<!--************************************************************************************************-->
+<!--*******************************************TABLAS PARA DESPLEGAR DATOS****************************************************-->
 						<div class="panel tablas" ng-show="tab===1">
 							<center><h3 class="tituloTablas">NAME</h3></center>
-							
-							<input type="text" class="form-control cuadroBuscar" placeholder="BUSCAR" ng-model="buscar">
+							<center>
+							<div class="input-group cuadroBuscar">
+								<span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
+								<input type="text" class="form-control" placeholder="BUSCAR" ng-model="buscar">
+							</div>
+							</center>
 							<table class="table table-bordered">
+								
 								<thead>
+									<br>
 									<tr>
-										<th>NAME</th>
-
+										<th><center class="tituloNombreTabla">NAME</center></th>
 									</tr>
 								</thead>
 								<tbody>
 									<tr ng-repeat="datonombre in informacion | filter:buscar">
-										<td>{{datonombre.name}}</td>
+										<td><center>{{datonombre.name}}</center></td>
 										<td ng-show="{{datonombre.image[1]}}"><img ng-src="{{datonombre.image[1] | soloUrl}}"></td>
-										<td ng-show="!{{datonombre.image[1]}}"><img src="images/NoCover.jpg"></td>
+										<td ng-show="!{{datonombre.image[1]}}"><img src="images/imagen"></td>
 									</tr>
 								</tbody>
 							</table>
 						</div>
-		<!--********************************LLAMADO DE DURACION APPI*******************************************************************************-->
+<!--***************************************************************************************************************************-->
+<!--***************************************LLAMADO DE DATOS DURACION********************************************************-->
 						<div class="panel tablas" ng-show="tab===2">
 							<center><h3 class="tituloTablas">DURATION</h3></center>
-							<input type="text" class="form-control cuadroBuscar" placeholder="BUSCAR" ng-model="buscar">
+							<center>
+							<div class="input-group cuadroBuscar">
+								<span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
+								<input type="text" class="form-control" placeholder="BUSCAR" ng-model="buscar">
+							</div>
+							</center>
 							<table class="table table-bordered">
 								<thead>
 									<tr>
-										<th>DURATION</th>
-										<th>NAME</th>
+									<br>
+										<th><center class="tituloNombreTabla">DURATION</center></th>
+										<th><center class="tituloNombreTabla">NAME</center></th>
 									</tr>
 								</thead>
 								<tbody>
 									<tr ng-repeat="datonombre in informacion | filter:buscar">
-										<td>{{datonombre.duration  *1000 | date: 'mm:ss'}}</td>
-										<td>{{datonombre.name}}</td>
+										<td><center>{{datonombre.duration  *1000 | date: 'mm:ss'}}</center></td>
+										<td><center>{{datonombre.name}}</center></td>
 									</tr>
 								</tbody>
 							</table>
 						</div>
-		<!--*******************************LLAMADO DE PLAYCOUNT APPI*****************************************************************************-->
+<!--***************************************************************************************************************************-->
+<!--***************************************LLAMADO DE DATOS COUNTS*************************************************************-->
 						<div class="panel tablas" ng-show="tab===3">
 							<center><h3 class="tituloTablas">PLAY-COUNTS</h3></center>
-							<input type="text" class="form-control cuadroBuscar" placeholder="BUSCAR" ng-model="buscar">
+							<center>
+							<div class="input-group cuadroBuscar">
+								<span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
+								<input type="text" class="form-control" placeholder="BUSCAR" ng-model="buscar">
+							</div>
+							</center>
 							<table class="table table-bordered">
 								<thead>
 									<tr>
-										<th>PLAYCOUNTS</th>
-										<th>NAME</th>
+									<br>
+										<th><center class="tituloNombreTabla">PLAYCOUNTS</center></th>
+										<th><center class="tituloNombreTabla">NAME</center></th>
 									</tr>
 								</thead>
 								<tbody>
 									<tr ng-repeat="datonombre in informacion | filter:buscar">
-										<td>{{datonombre.playcount}}</td>
-										<td>{{datonombre.name}}</td>
+										<td><center>{{datonombre.playcount}}</center></td>
+										<td><center>{{datonombre.name}}</center></td>
 									</tr>
 								</tbody>
 							</table>
 						</div>
-		<!--*********************************LLAMADO DE LISTENERS APPI****************************************************************************-->
+<!--************************************************************************************************************************-->
+<!--***************************************LLAMADO DE DATOS LISTENERS*******************************************************-->
 						<div class="panel tablas" ng-show="tab===4">
 						<center><h3 class="tituloTablas">LISTENERS</h3></center>
-						<input type="text" class="form-control cuadroBuscar" placeholder="BUSCAR" ng-model="buscar">
+						<center>
+						<div class="input-group cuadroBuscar">
+								<span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
+								<input type="text" class="form-control" placeholder="BUSCAR" ng-model="buscar">
+							</div>
+						</center>
 							<table class="table table-bordered">
 								<thead>
 									<tr>
-										<th>LISTENERS</th>
-										<th>NAME</th>
+									<br>
+										<th><center class="tituloNombreTabla">LISTENERS</center></th>
+										<th><center class="tituloNombreTabla">NAME</center></th>
 									</tr>
 								</thead>
 								<tbody>
 									<tr ng-repeat="datonombre in informacion | filter:buscar">
-										<td>{{datonombre.listeners}}</td>
-										<td>{{datonombre.name}}</td>
+										<td><center>{{datonombre.listeners}}</center></td>
+										<td><center>{{datonombre.name}}</center></td>
 									</tr>
 								</tbody>
 							</table>
 						</div>
-	<!--*********************************LLAMADO DE LISTENERS APPI****************************************************************************-->
+<!--***************************************************************************************************************************-->
+<!--***************************************LLAMADO DE DATOS ARTIST*************************************************************-->
 						<div class="panel tablas" ng-show="tab===5">
 						<center><h3 class="tituloTablas">ARTIS</h3></center>
-						<input type="text" class="form-control cuadroBuscar" placeholder="BUSCAR" ng-model="buscar">
+						<center>
+						<div class="input-group cuadroBuscar">
+								<span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
+								<input type="text" class="form-control" placeholder="BUSCAR" ng-model="buscar">
+							</div>
+						</center>
 							<table class="table table-bordered">
 								<thead>
 									<tr>
-										<th>ARTIST</th>
-										<th>NAME</th>
+									<br>
+										<th><center class="tituloNombreTabla">ARTIST<ARTIST</center></th>
+										<th><center class="tituloNombreTabla">NAME</center></th>
 									</tr>
 								</thead>
 								<tbody>
 									<tr ng-repeat="datonombre in informacion | filter:buscar">
-										<td>{{datonombre.artist.name}}</td>
-										<td>{{datonombre.name}}</td>
+										<td><center>{{datonombre.artist.name}}</center></td>
+										<td><center>{{datonombre.name}}</center></td>
 									</tr>
 								</tbody>
 							</table>
 						</div>
-		<!--**********************************TODAS LAS APPI*****************************************************************************-->
+<!--***************************************************************************************************************************-->
+<!--***************************************LLAMADO DE DATOS TODOS(ALL)*********************************************************-->
 						<div class="panel tablas" ng-show="tab===6">
-							<center><h3 class="tituloTablas">ALL</h3></center>
-							<input type="text" class="form-control cuadroBuscar" placeholder="BUSCAR" ng-model="buscar">
+						<center><h3 class="tituloTablas">ALL</h3></center>
+						<center>
+						<div class="input-group cuadroBuscar">
+								<span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
+								<input type="text" class="form-control" placeholder="BUSCAR" ng-model="buscar">
+							</div>
+						</center>
 							<table class="table table-bordered">
 								<thead>
 									<tr>
-										<th>IMAGE</th>
-										<th>NAME</th>
-										<th>ARTIST</th>									
-										<th>DURATION</th>
-										<th>PLAY-COUNTS</th>
-										<th>LISTENERS</th>
+									<br>
+										<th><center class="tituloNombreTabla">IMAGE</center></th>
+										<th><center class="tituloNombreTabla">NAME</center></th>
+										<th><center class="tituloNombreTabla">ARTIST</center></th>
+										<th><center class="tituloNombreTabla">DURATION</center></th>
+										<th><center class="tituloNombreTabla">PLAY-COUNTS</center></th>
+										<th><center class="tituloNombreTabla">LISTENERS</center></th>
 									</tr>
 								</thead>
 								<tbody>
 									<tr ng-repeat="datonombre in informacion | filter:buscar" >
 										<td ng-show="{{datonombre.image[1]}}"><img ng-src="{{datonombre.image[1] | soloUrl}}"></td>
-										<td ng-show="!{{datonombre.image[1]}}"><img src="images/NoCover.jpg"></td>
-										<td>{{datonombre.name}}</td>
-										<td>{{datonombre.artist.name}}</td>
-										<td>{{datonombre.duration}}</td>
-										<td>{{datonombre.playcount }}</td>
-										<td>{{datonombre.listeners}}</td>
-										
+										<td ng-show="!{{datonombre.image[1]}}"><img src="images/imagen"></td>
+										<td><center>{{datonombre.name}}</center></td>
+										<td><center>{{datonombre.artist.name}}</center></td>
+										<td><center>{{datonombre.duration}}</center></td>
+										<td><center>{{datonombre.playcount }}</center></td>
+										<td><center>{{datonombre.listeners}}</center></td>
 									</tr>
-										
-									
-								</tbody>	
+								</tbody>
 							</table>
-							</div>	
-						</div>	
-	<!--**********************************************************************************-->
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>

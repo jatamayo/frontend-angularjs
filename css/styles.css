@@ -11,6 +11,7 @@ body
 /**************************************************************/
 .titulo
 {
+
 	color:#214F68;
 	text-shadow: 0 0.2em 0.3em #838487;
 
@@ -28,15 +29,17 @@ body
 	background-color: white;
 	border-radius: 6px;
 	border:double;
-	border-color:black;
+	border-color:#A2ABFC;
 
 }
 .tablas
 {
-	color:black;
+	color:1A3067;
+	font-size: 20px;
 	background-color:white;
 	border:double;
-	text-shadow: 0 0.2em 0.3em black;
+	text-shadow: 0 0.1em 0.1em #AFB2C9;
+	border-color: #A2ABFC;
 }
 .tituloTablas
 {
@@ -45,9 +48,20 @@ body
 	text-shadow: 0 0.2em 0.3em black;
 	border-radius:5px;
 	border:double;
-	border-color:black;
+	border-color:#A2ABFC;
+	width: 700px;
 }
 .cuadroBuscar
 {
-	margin-left:10px;
+	margin-left: 10px;
+	height: 30px;
+	width: 250px;
+	text-shadow: 0 0.2em 0.3em #214F68;
+	border:transparent;
+	border-color: #214F68;
+	text-align: center;
+}
+.tituloNombreTabla
+{
+	color:#214F68;
 }
