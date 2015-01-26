@@ -15,6 +15,7 @@ body
 	color:#214F68;
 	text-shadow: 0 0.2em 0.3em #838487;
 
+
 }
 .botonesFiltros
 {
@@ -28,8 +29,9 @@ body
 {
 	background-color: white;
 	border-radius: 6px;
-	border:double;
-	border-color:#A2ABFC;
+	border:solid;
+	border-color:#172F51;
+	background-color: #D3DEED;
 
 }
 .tablas
@@ -37,9 +39,11 @@ body
 	color:1A3067;
 	font-size: 20px;
 	background-color:white;
-	border:double;
+	border:solid;
 	text-shadow: 0 0.1em 0.1em #AFB2C9;
-	border-color: #A2ABFC;
+	border-color: #172F51;
+	border-radius: 20px;
+	background-color: #D3DEED;
 }
 .tituloTablas
 {
