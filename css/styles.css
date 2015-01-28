@@ -14,6 +14,7 @@ body
 
 	color:#214F68;
 	text-shadow: 0 0.2em 0.3em #838487;
+	text-align: center;
 
 
 }
@@ -23,6 +24,10 @@ body
 	text-shadow: 0 0.2em 0.3em black;
 	border-radius:2px;
 
+}
+.centrarBotones
+{
+	text-align: center;
 }
 /**************************************************************/
 .cuadroTitulo
@@ -53,7 +58,7 @@ body
 	border-radius:5px;
 	border:double;
 	border-color:#A2ABFC;
-	width: 700px;
+	
 }
 .cuadroBuscar
 {
@@ -68,4 +73,9 @@ body
 .tituloNombreTabla
 {
 	color:#214F68;
+
+}
+.tituloTablas
+{
+	text-align: center;
 }

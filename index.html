@@ -3,14 +3,14 @@
 Usa este archivo para tu proyecto. No olvides hacer
 la estructura correta y guardar TODO tu CSS en el archivo styles.css
  -->
-<html  ng-app="angularjs">
+<html  data-ng-app="angularjs">
 <head>
 	<title>Frontend-Angularjs</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	
 	<link rel="icon" href="http://4.bp.blogspot.com/-ivpmwk2i8Wk/Uq26qw3oLcI/AAAAAAAABsE/4gZYno6LdgY/s1600/Mangekyou+Sharingan+Eterno+Madara.png">
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="bootstrap/fonts/">
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
 	<link href="css/boot/bootstrap-responsive.css" rel="stylesheet">
@@ -25,198 +25,198 @@ la estructura correta y guardar TODO tu CSS en el archivo styles.css
 <!--****************************************TITULO FRONTENDN ANGULAR,JS********************************************************-->
 	<div class="container">
 		<div class="row">
-			<div class="titulo" class="span12">
-				<center>
+			<div class="span12 titulo">
+				
 				<div class="cuadroTitulo"><h1>FRONTEND - ANGULARJS</h1></div>
 				
-				</center>
+				
 			</div>
 		</div>
 	</div>
-	<br>
+	
 
 <!--***************************************************************************************************************************-->
 <!--***********************************************BOTONES*********************************************************************-->
 	
 	<div class="row">
-		<div ng-controller="lastfm as datosfm">	
-			<center>
+		<div data-ng-controller="lastfm as datosfm">	
+			<div class="centrarBotones">
 				<div class="btn-group" role="group" aria-label="...">
-					  <button class="botonesFiltros" type="button" class="btn btn-default" ng-click="tab=1"></span>NAME</button>
-					  <button class="botonesFiltros" type="button" class="btn btn-default" ng-click="tab=2">DURATION</button>
-					  <button class="botonesFiltros" type="button" class="btn btn-default" ng-click="tab=3">PLAY-COUNTS</button>
-					  <button class="botonesFiltros" type="button" class="btn btn-default" ng-click="tab=4">LISTENERS</button>
-					  <button class="botonesFiltros" type="button" class="btn btn-default" ng-click="tab=5">ARTIST</button>
-					   <button class="botonesFiltros" type="button" class="btn btn-default" ng-click="tab=6">ALL</button>
-						<br>
+					<button  type="button" class="btn btn-default botonesFiltros" data-ng-click="tab=1">NAME</button>
+					<button  type="button" class="btn btn-default botonesFiltros" data-ng-click="tab=2">DURATION</button>
+					<button  type="button" class="btn btn-default botonesFiltros" data-ng-click="tab=3">PLAY-COUNTS</button>
+					<button  type="button" class="btn btn-default botonesFiltros" data-ng-click="tab=4">LISTENERS</button>
+					<button  type="button" class="btn btn-default botonesFiltros" data-ng-click="tab=5">ARTIST</button>
+					<button  type="button" class="btn btn-default botonesFiltros" data-ng-click="tab=6">ALL</button>
+						
 				</div>
-			</center>
-			<br>
+			</div>
+			
 <!--******************************************LLAMADO DE DATOS NOMBRE*********************************************************-->
 			<div class="container">
 				<div class="row">
 					<div class="span12">
 <!--*******************************************TABLAS PARA DESPLEGAR DATOS****************************************************-->
-						<div class="panel tablas" ng-show="tab===1">
-							<center><h3 class="tituloTablas">NAME</h3></center>
-							<center>
+						<div class="panel tablas " data-ng-show="tab===1">
+							<h3 class="tituloTablas">NAME</h3>
+							
 							<div class="input-group cuadroBuscar">
-								<span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
-								<input type="text" class="form-control" placeholder="BUSCAR" ng-model="buscar">
+								<span class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
+								<input type="text" class="form-control" placeholder="BUSCAR" data-ng-model="buscar">
 							</div>
-							</center>
+							
 							<table class="table table-bordered">
 								
 								<thead>
-									<br>
+									
 									<tr>
-										<th><center class="tituloNombreTabla">NAME</center></th>
+										<th> <p class="tituloNombreTabla">NAME</th>
 									</tr>
 								</thead>
 								<tbody>
-									<tr ng-repeat="datonombre in informacion | filter:buscar">
-										<td><center>{{datonombre.name}}</center></td>
-										<td ng-show="{{datonombre.image[1]}}"><img ng-src="{{datonombre.image[1] | soloUrl}}"></td>
-										<td ng-show="!{{datonombre.image[1]}}"><img src="images/imagen"></td>
+									<tr data-ng-repeat="datonombre in informacion | filter:buscar">
+										<td>{{datonombre.name}}</td>
+										<td data-ng-show="{{datonombre.image[1]}}"><img src="{{datonombre.image[1] | soloUrl}}" alt="imagen"></td>
+										<td data-ng-show="!{{datonombre.image[1]}}"><img src="images/imagen" alt="imagen"></td>
 									</tr>
 								</tbody>
 							</table>
 						</div>
 <!--***************************************************************************************************************************-->
 <!--***************************************LLAMADO DE DATOS DURACION********************************************************-->
-						<div class="panel tablas" ng-show="tab===2">
-							<center><h3 class="tituloTablas">DURATION</h3></center>
-							<center>
+						<div class="panel tablas" data-ng-show="tab===2">
+							<h3 class="tituloTablas">DURATION</h3>
+							
 							<div class="input-group cuadroBuscar">
-								<span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
-								<input type="text" class="form-control" placeholder="BUSCAR" ng-model="buscar">
+								<span class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
+								<input type="text" class="form-control" placeholder="BUSCAR" data-ng-model="buscar">
 							</div>
-							</center>
+							
 							<table class="table table-bordered">
 								<thead>
 									<tr>
-									<br>
-										<th><center class="tituloNombreTabla">DURATION</center></th>
-										<th><center class="tituloNombreTabla">NAME</center></th>
+									
+										<th> <p class="tituloNombreTabla">DURATION</th>
+										<th> <p class="tituloNombreTabla">NAME</th>
 									</tr>
 								</thead>
 								<tbody>
-									<tr ng-repeat="datonombre in informacion | filter:buscar">
-										<td><center>{{datonombre.duration  *1000 | date: 'mm:ss'}}</center></td>
-										<td><center>{{datonombre.name}}</center></td>
+									<tr data-ng-repeat="datonombre in informacion | filter:buscar">
+										<td>{{datonombre.duration  *1000 | date: 'mm:ss'}}</td>
+										<td>{{datonombre.name}}</td>
 									</tr>
 								</tbody>
 							</table>
 						</div>
 <!--***************************************************************************************************************************-->
 <!--***************************************LLAMADO DE DATOS COUNTS*************************************************************-->
-						<div class="panel tablas" ng-show="tab===3">
-							<center><h3 class="tituloTablas">PLAY-COUNTS</h3></center>
-							<center>
+						<div class="panel tablas" data-ng-show="tab===3">
+							<h3 class="tituloTablas">PLAY-COUNTS</h3>
+							
 							<div class="input-group cuadroBuscar">
-								<span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
-								<input type="text" class="form-control" placeholder="BUSCAR" ng-model="buscar">
+								<span class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
+								<input type="text" class="form-control" placeholder="BUSCAR" data-ng-model="buscar">
 							</div>
-							</center>
+							
 							<table class="table table-bordered">
 								<thead>
 									<tr>
-									<br>
-										<th><center class="tituloNombreTabla">PLAYCOUNTS</center></th>
-										<th><center class="tituloNombreTabla">NAME</center></th>
+									
+										<th> <p class="tituloNombreTabla">PLAYCOUNTS</th>
+										<th> <p class="tituloNombreTabla">NAME</th>
 									</tr>
 								</thead>
 								<tbody>
-									<tr ng-repeat="datonombre in informacion | filter:buscar">
-										<td><center>{{datonombre.playcount}}</center></td>
-										<td><center>{{datonombre.name}}</center></td>
+									<tr data-ng-repeat="datonombre in informacion | filter:buscar">
+										<td>{{datonombre.playcount}}</td>
+										<td>{{datonombre.name}}</td>
 									</tr>
 								</tbody>
 							</table>
 						</div>
 <!--************************************************************************************************************************-->
 <!--***************************************LLAMADO DE DATOS LISTENERS*******************************************************-->
-						<div class="panel tablas" ng-show="tab===4">
-						<center><h3 class="tituloTablas">LISTENERS</h3></center>
-						<center>
+						<div class="panel tablas" data-ng-show="tab===4">
+						<h3 class="tituloTablas">LISTENERS</h3>
+						
 						<div class="input-group cuadroBuscar">
-								<span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
-								<input type="text" class="form-control" placeholder="BUSCAR" ng-model="buscar">
+								<span class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
+								<input type="text" class="form-control" placeholder="BUSCAR" data-ng-model="buscar">
 							</div>
-						</center>
+						
 							<table class="table table-bordered">
 								<thead>
 									<tr>
-									<br>
-										<th><center class="tituloNombreTabla">LISTENERS</center></th>
-										<th><center class="tituloNombreTabla">NAME</center></th>
+									
+										<th> <p class="tituloNombreTabla">LISTENERS</th>
+										<th> <p class="tituloNombreTabla">NAME</th>
 									</tr>
 								</thead>
 								<tbody>
-									<tr ng-repeat="datonombre in informacion | filter:buscar">
-										<td><center>{{datonombre.listeners}}</center></td>
-										<td><center>{{datonombre.name}}</center></td>
+									<tr data-ng-repeat="datonombre in informacion | filter:buscar">
+										<td>{{datonombre.listeners}}</td>
+										<td>{{datonombre.name}}</td>
 									</tr>
 								</tbody>
 							</table>
 						</div>
 <!--***************************************************************************************************************************-->
 <!--***************************************LLAMADO DE DATOS ARTIST*************************************************************-->
-						<div class="panel tablas" ng-show="tab===5">
-						<center><h3 class="tituloTablas">ARTIS</h3></center>
-						<center>
+						<div class="panel tablas" data-ng-show="tab===5">
+						<h3 class="tituloTablas">ARTIST</h3>
+						
 						<div class="input-group cuadroBuscar">
-								<span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
-								<input type="text" class="form-control" placeholder="BUSCAR" ng-model="buscar">
+								<span class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
+								<input type="text" class="form-control" placeholder="BUSCAR" data-ng-model="buscar">
 							</div>
-						</center>
+						
 							<table class="table table-bordered">
 								<thead>
 									<tr>
-									<br>
-										<th><center class="tituloNombreTabla">ARTIST<ARTIST</center></th>
-										<th><center class="tituloNombreTabla">NAME</center></th>
+									
+										<th> <p class="tituloNombreTabla">ARTIST</th>
+										<th> <p class="tituloNombreTabla">NAME</th>
 									</tr>
 								</thead>
 								<tbody>
-									<tr ng-repeat="datonombre in informacion | filter:buscar">
-										<td><center>{{datonombre.artist.name}}</center></td>
-										<td><center>{{datonombre.name}}</center></td>
+									<tr data-ng-repeat="datonombre in informacion | filter:buscar">
+										<td>{{datonombre.artist.name}}</td>
+										<td>{{datonombre.name}}</td>
 									</tr>
 								</tbody>
 							</table>
 						</div>
 <!--***************************************************************************************************************************-->
 <!--***************************************LLAMADO DE DATOS TODOS(ALL)*********************************************************-->
-						<div class="panel tablas" ng-show="tab===6">
-						<center><h3 class="tituloTablas">ALL</h3></center>
-						<center>
+						<div class="panel tablas" data-ng-show="tab===6">
+						<h3 class="tituloTablas">ALL</h3>
+						
 						<div class="input-group cuadroBuscar">
-								<span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
-								<input type="text" class="form-control" placeholder="BUSCAR" ng-model="buscar">
+								<span class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
+								<input type="text" class="form-control" placeholder="BUSCAR" data-ng-model="buscar">
 							</div>
-						</center>
+						
 							<table class="table table-bordered">
 								<thead>
 									<tr>
-									<br>
-										<th><center class="tituloNombreTabla">IMAGE</center></th>
-										<th><center class="tituloNombreTabla">NAME</center></th>
-										<th><center class="tituloNombreTabla">ARTIST</center></th>
-										<th><center class="tituloNombreTabla">DURATION</center></th>
-										<th><center class="tituloNombreTabla">PLAY-COUNTS</center></th>
-										<th><center class="tituloNombreTabla">LISTENERS</center></th>
+									
+										<th> <p class="tituloNombreTabla">IMAGE</th>
+										<th> <p class="tituloNombreTabla">NAME</th>
+										<th> <p class="tituloNombreTabla">ARTIST</th>
+										<th> <p class="tituloNombreTabla">DURATION</th>
+										<th> <p class="tituloNombreTabla">PLAY-COUNTS</th>
+										<th> <p class="tituloNombreTabla">LISTENERS</th>
 									</tr>
 								</thead>
 								<tbody>
-									<tr ng-repeat="datonombre in informacion | filter:buscar" >
-										<td ng-show="{{datonombre.image[1]}}"><img ng-src="{{datonombre.image[1] | soloUrl}}"></td>
-										<td ng-show="!{{datonombre.image[1]}}"><img src="images/imagen"></td>
-										<td><center>{{datonombre.name}}</center></td>
-										<td><center>{{datonombre.artist.name}}</center></td>
-										<td><center>{{datonombre.duration}}</center></td>
-										<td><center>{{datonombre.playcount }}</center></td>
-										<td><center>{{datonombre.listeners}}</center></td>
+									<tr data-ng-repeat="datonombre in informacion | filter:buscar" >
+										<td data-ng-show="{{datonombre.image[1]}}"><img src="{{datonombre.image[1] | soloUrl}}" alt="imagen"></td>
+										<td data-ng-show="!{{datonombre.image[1]}}"><img src="images/imagen" alt="imagen"></td>
+										<td>{{datonombre.name}}</td>
+										<td>{{datonombre.artist.name}}</td>
+										<td>{{datonombre.duration}}</td>
+										<td>{{datonombre.playcount }}</td>
+										<td>{{datonombre.listeners}}</td>
 									</tr>
 								</tbody>
 							</table>
@@ -226,7 +226,7 @@ la estructura correta y guardar TODO tu CSS en el archivo styles.css
 				</div>
 			</div>
 		</div>
-	</div>
+	
 <!--***************************************************************************************************************************-->
 	<script src="js/script.js"></script>
 	<script src="js/bootstrap.min.js"></script>
